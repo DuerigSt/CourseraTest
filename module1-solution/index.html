@@ -13,11 +13,12 @@
     <div ng-controller="LunchCheckerController">
       <div>
         Your lunch:
-        <input type="text"
-          placeholder="list comma separated dishes you usually have for lunch"
-          ng-model="lunchItems">
+          <!-- Does not consider empty items like ,, -->
+          <input
+            type="text"
+            placeholder="list comma separated dishes you usually have for lunch"
+            ng-model="lunchItems">
       </div>
-      <div>Total lunch items is: {{countOfLunchItems}}</div>
       <div>This is: {{stateOfLunchItems}}</div>
       <div>
           <button ng-click="calculateLunchItems()">Check If Too Much</button>

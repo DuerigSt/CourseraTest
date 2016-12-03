@@ -5,12 +5,11 @@ angular.module('LunchCheckerApp', [])
 
 .controller('LunchCheckerController', function ($scope) {
   $scope.lunchItems = "";
-  $scope.countOfLunchItems = 0;
   $scope.stateOfLunchItems  = "Unknown";
 
   $scope.calculateLunchItems = function () {
-    $scope.countOfLunchItems = calculatNumericForString($scope.lunchItems);
-    $scope.stateOfLunchItems = calculatState($scope.countOfLunchItems);
+    var countOfLunchItems = calculatNumericForString($scope.lunchItems);
+    $scope.stateOfLunchItems = calculatState(countOfLunchItems);
   };
 
   function calculatNumericForString(string) {
@@ -30,11 +29,17 @@ angular.module('LunchCheckerApp', [])
   }
 
   function calculatState(count) {
-    if (count > 4) {
-      return "Too Much";
+    if (count == 0) {
+        return "Please enter data first";
     }
 
-    return "Acceptable";
+    if (count > 3) {
+      return "Too Much!";
+    }
+
+
+
+    return "Enjoy!";
   }
 
 });
