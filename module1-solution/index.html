@@ -4,22 +4,22 @@
     <meta charset="utf-8">
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>body { font-size: 1.4em; }</style>
     <title>Lunch Checker</title>
   </head>
   <body ng-app="LunchCheckerApp">
-    <h1>Lunch Checker</h1>
-    <div ng-controller="LunchCheckerController">
+    <div ng-controller="LunchCheckerController" ng-style="lunchStateStyle">
+      <h1>Lunch Checker</h1>
       <div>
         Your lunch:
           <!-- Does not consider empty items like ,, -->
           <input
             type="text"
             placeholder="list comma separated dishes you usually have for lunch"
+            ng-style="lunchTextBoxStyle"
             ng-model="lunchItems">
       </div>
-      <div>This is: {{stateOfLunchItems}}</div>
+      <div>This is: {{lunchState}}</div>
       <div>
           <button ng-click="calculateLunchItems()">Check If Too Much</button>
       </div>
